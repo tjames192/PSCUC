@@ -2,9 +2,9 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>Cisco.UnityConnection.CUCCallhandlers</Name>
+            <Name>Cisco.UnityConnection.CUCCallhandlerTemplate</Name>
             <ViewSelectedBy>
-                <TypeName>Cisco.UnityConnection.CUCCallhandlers</TypeName>
+                <TypeName>Cisco.UnityConnection.CUCCallhandlerTemplate</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <AutoSize/>
@@ -16,7 +16,7 @@
                         <Label>MaxMsgLen</Label>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>DtmfAccessId</Label>
+                        <Label>IsTemplate</Label>
                     </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
@@ -30,7 +30,7 @@
                                 <PropertyName>MaxMsgLen</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>DtmfAccessId</PropertyName>
+                                <PropertyName>IsTemplate</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
@@ -38,9 +38,9 @@
             </TableControl>
         </View>
         <View>
-        <Name>Cisco.UnityConnection.CUCCallhandlers</Name>
+        <Name>Cisco.UnityConnection.CUCCallhandlerTemplate</Name>
         <ViewSelectedBy>
-            <TypeName>Cisco.UnityConnection.CUCCallhandlers</TypeName>
+            <TypeName>Cisco.UnityConnection.CUCCallhandlerTemplate</TypeName>
         </ViewSelectedBy>
         <ListControl>
         <ListEntries>
@@ -53,7 +53,7 @@
               <PropertyName>MaxMsgLen</PropertyName>
             </ListItem>
             <ListItem>
-              <PropertyName>DtmfAccessId</PropertyName>
+              <PropertyName>IsTemplate</PropertyName>
             </ListItem>
         </ListItems>
         </ListEntry>

@@ -2,9 +2,9 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>Cisco.UnityConnection.CUCCallhandlers</Name>
+            <Name>Cisco.UnityConnection.CUCScheduleSet</Name>
             <ViewSelectedBy>
-                <TypeName>Cisco.UnityConnection.CUCCallhandlers</TypeName>
+                <TypeName>Cisco.UnityConnection.CUCScheduleSet</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <AutoSize/>
@@ -13,10 +13,7 @@
                         <Label>DisplayName</Label>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>MaxMsgLen</Label>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>DtmfAccessId</Label>
+                        <Label>Undeletable</Label>
                     </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
@@ -27,10 +24,7 @@
                                 <PropertyName>DisplayName</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>MaxMsgLen</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>DtmfAccessId</PropertyName>
+                                <PropertyName>Undeletable</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
@@ -38,9 +32,9 @@
             </TableControl>
         </View>
         <View>
-        <Name>Cisco.UnityConnection.CUCCallhandlers</Name>
+        <Name>Cisco.UnityConnection.CUCScheduleSet</Name>
         <ViewSelectedBy>
-            <TypeName>Cisco.UnityConnection.CUCCallhandlers</TypeName>
+            <TypeName>Cisco.UnityConnection.CUCScheduleSet</TypeName>
         </ViewSelectedBy>
         <ListControl>
         <ListEntries>
@@ -50,10 +44,7 @@
               <PropertyName>DisplayName</PropertyName>
             </ListItem>
             <ListItem>
-              <PropertyName>MaxMsgLen</PropertyName>
-            </ListItem>
-            <ListItem>
-              <PropertyName>DtmfAccessId</PropertyName>
+              <PropertyName>Undeletable</PropertyName>
             </ListItem>
         </ListItems>
         </ListEntry>

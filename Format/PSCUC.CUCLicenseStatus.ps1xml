@@ -2,21 +2,18 @@
 <Configuration>
     <ViewDefinitions>
         <View>
-            <Name>Cisco.UnityConnection.CUCCallhandlers</Name>
+            <Name>Cisco.UnityConnection.CUCLicenseStatus</Name>
             <ViewSelectedBy>
-                <TypeName>Cisco.UnityConnection.CUCCallhandlers</TypeName>
+                <TypeName>Cisco.UnityConnection.CUCLicenseStatus</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <AutoSize/>
                 <TableHeaders>
                     <TableColumnHeader>
-                        <Label>DisplayName</Label>
+                        <Label>Description</Label>
                     </TableColumnHeader>
                     <TableColumnHeader>
-                        <Label>MaxMsgLen</Label>
-                    </TableColumnHeader>
-                    <TableColumnHeader>
-                        <Label>DtmfAccessId</Label>
+                        <Label>Count</Label>
                     </TableColumnHeader>
                 </TableHeaders>
                 <TableRowEntries>
@@ -24,13 +21,10 @@
                         <Wrap/>
                         <TableColumnItems>
                             <TableColumnItem>
-                                <PropertyName>DisplayName</PropertyName>
+                                <PropertyName>description</PropertyName>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>MaxMsgLen</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>DtmfAccessId</PropertyName>
+                                <PropertyName>Count</PropertyName>
                             </TableColumnItem>
                         </TableColumnItems>
                     </TableRowEntry>
@@ -38,22 +32,19 @@
             </TableControl>
         </View>
         <View>
-        <Name>Cisco.UnityConnection.CUCCallhandlers</Name>
+        <Name>Cisco.UnityConnection.CUCUser</Name>
         <ViewSelectedBy>
-            <TypeName>Cisco.UnityConnection.CUCCallhandlers</TypeName>
+            <TypeName>Cisco.UnityConnection.CUCUser</TypeName>
         </ViewSelectedBy>
         <ListControl>
         <ListEntries>
         <ListEntry>
         <ListItems>
             <ListItem>
-              <PropertyName>DisplayName</PropertyName>
+              <PropertyName>Description</PropertyName>
             </ListItem>
             <ListItem>
-              <PropertyName>MaxMsgLen</PropertyName>
-            </ListItem>
-            <ListItem>
-              <PropertyName>DtmfAccessId</PropertyName>
+              <PropertyName>Count</PropertyName>
             </ListItem>
         </ListItems>
         </ListEntry>
