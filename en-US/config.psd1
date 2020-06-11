@@ -15,7 +15,4 @@ templatealias   = voicemailusertemplate
 
 # Class of Service template for voicemail enabled users
 CosDisplayName  = Voice Mail User COS
-
-# Custom HTML Missed Call Notification Templated ID
-NotificationTemplateID = 2c019f05-06b0-4e47-b0ff-617883fb8331
 '@
