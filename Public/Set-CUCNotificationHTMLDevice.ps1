@@ -20,6 +20,9 @@ Set-CUCNotificationHTMLDevice -alias demo@demo.com -DisplayName "HTML Missed Cal
 		
         [Parameter(Mandatory = $true, ValueFromPipeline = $True)]
         [bool]$Enabled,
+	
+	[Parameter(Mandatory = $false, ValueFromPipeline = $True)]
+	[string]$NotificationTemplate,
 		
         [Parameter(Mandatory = $false, HelpMessage = 'Cisco Unity Session')]
         $session = $DefaultCUCSession
