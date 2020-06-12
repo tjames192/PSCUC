@@ -9,6 +9,8 @@ Set Cisco Unity Users' HTML Notifcation Device
 .EXAMPLE
 Set-CUCNotificationHTMLDevice -alias demo@demo.com -DisplayName "HTML Missed Call" -Enabled $true
 
+.EXAMPLE
+Set-CUCNotificationHTMLDevice -alias demo@demo.com -DisplayName "HTML Scheduled Summary" -Enabled $true -NotificationTemplateName "Default_Missed_Call_With_Summary"
 #>
     [CmdletBinding()]
     Param (
@@ -20,6 +22,9 @@ Set-CUCNotificationHTMLDevice -alias demo@demo.com -DisplayName "HTML Missed Cal
 		
         [Parameter(Mandatory = $true, ValueFromPipeline = $True)]
         [bool]$Enabled,
+	
+	[Parameter(Mandatory = $false, ValueFromPipeline = $True)]
+	[string]$NotificationTemplateName,
 		
         [Parameter(Mandatory = $false, HelpMessage = 'Cisco Unity Session')]
         $session = $DefaultCUCSession
@@ -42,17 +47,22 @@ Set-CUCNotificationHTMLDevice -alias demo@demo.com -DisplayName "HTML Missed Cal
         $NotificationDevice = $NotificationDevices | ? {$_.displayname -eq $DisplayName}
 		
         $URI = "https://$($session['server'])$($NotificationDevice.URI)"
-		
-        # if config NotificationID missing use Default_Missed_Call HTML Template
-        # else use custom HTML Template
-        # TODO: enumerate HTML Template ObjectIDs, don't rely on static objectid
-        if (-not $config.NotificationTemplateID) { $NotificationTemplateID = "a4cf3357-3856-48d5-a75e-8848a673fa66" }
-        else { $NotificationTemplateID = $config.NotificationTemplateID }
+				
+	# if NotificationTemplateName missing use Default_Missed_Call HTML Template
+	# else use custom HTML Template
+        if (-not $NotificationTemplateName) {
+		Write-Verbose -Message "[$($MyInvocation.MyCommand)] Getting Notification Template: Default_Missed_Call"
+		$NotificationTemplate = Get-CUCNotificationTemplate "Default_Missed_Call" 
+	}
+        else { 
+		Write-Verbose -Message "[$($MyInvocation.MyCommand)] Getting Custom Notification Template: $NotificationTemplateName"
+		$NotificationTemplate = Get-CUCNotificationTemplate $NotificationTemplateName
+	}
 		
         $json = [ordered]@{
             SmtpAddress            = $user.user.EmailAddress
             Active                 = $Enabled
-            NotificationTemplateID = $NotificationTemplateID
+            NotificationTemplateID = $NotificationTemplate.NotificationTemplateID
         }
 		
         $body = $json | ConvertTo-Json
@@ -65,11 +75,12 @@ Set-CUCNotificationHTMLDevice -alias demo@demo.com -DisplayName "HTML Missed Cal
             ContentType = 'application/json'
         }
 		
-        try { 
-            $request = invoke-restmethod @irmSplat -ErrorVariable apiErr
+        try {
+		Write-Verbose -Message "[$($MyInvocation.MyCommand)] Setting alias: $alias, notification: $($NotificationDevice.DisplayName) to $Enabled with template: $($NotificationTemplate.NotificationTemplateName)"		
+		$request = invoke-restmethod @irmSplat -ErrorVariable apiErr
         } 
         catch {
-            write-warning $apiErr.InnerException
+		write-warning $apiErr.InnerException
         }
     }
 }
