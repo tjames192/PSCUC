@@ -26,7 +26,7 @@ Remove-CUCUser demo@domain.com
 
 		$user = Invoke-RestMethod -Headers $session['headers'] -Uri $URI
 
-		$URI = "https://$($session['server'])/$($user.user.uri)"
+		$URI = "https://$($session['server'])$($user.user.uri)"
 
 		Write-Verbose -Message "[$($MyInvocation.MyCommand)] DisplayName: $($user.user.displayname)"
 		Write-Verbose -Message "[$($MyInvocation.MyCommand)] ObjectId: $($user.user.objectid)"
