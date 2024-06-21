@@ -24,9 +24,6 @@ Headers                        {Accept, Authorization}
         [Parameter(Mandatory = $true, ParameterSetName = "BySession", ValueFromPipeline = $True, ValueFromPipelinebyPropertyName = $True, HelpMessage = 'Cisco Unity Session object')]
         $Session,
 		
-        [Parameter(Mandatory = $false, HelpMessage = 'Cisco Unity username')]
-        [String]$Username,
-		
         [Parameter(Mandatory = $true, HelpMessage = 'Cisco Unity credentials')]
         [PSCredential]$Credentials,
 		
