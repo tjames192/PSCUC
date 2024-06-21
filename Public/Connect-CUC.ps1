@@ -7,12 +7,12 @@ Connect to Cisco Unity Connection
 Connect to Cisco Unity Connection
  
 .EXAMPLE
-Connect-CUC server -Username "ccmadmin"  -Password "abcd1234"
+Connect-CUC sfucpub -Username "ccmadmin"  -Password "ccmAB!(^$"
 
 Name                           Value                   
 ----                           -----                   
 IsConnected                    True                    
-Server                         server                 
+Server                         sfucpub                 
 Headers                        {Accept, Authorization}
 
 #>
@@ -27,10 +27,7 @@ Headers                        {Accept, Authorization}
         [Parameter(Mandatory = $false, HelpMessage = 'Cisco Unity username')]
         [String]$Username,
 		
-        [Parameter(Mandatory = $false, HelpMessage = 'Cisco Unity password')]
-        [String]$Password,
-		
-        [Parameter(Mandatory = $false, HelpMessage = 'Cisco Unity credentials')]
+        [Parameter(Mandatory = $true, HelpMessage = 'Cisco Unity credentials')]
         [PSCredential]$Credentials,
 		
         [Parameter(Mandatory = $false, HelpMessage = 'Trust all certs ?')]
@@ -44,10 +41,7 @@ Headers                        {Accept, Authorization}
         }
     }
     Process {
-        $EncodedAuthorization = [System.Text.Encoding]::UTF8.GetBytes($Username + ':' + $Password)
-        $EncodedPassword = [System.Convert]::ToBase64String($EncodedAuthorization)
-		
-        $session = Get-CUCAuth -Server $server -EncodedPassword $EncodedPassword
+        $session = Get-CUCAuth -Server $server -Credentials $Credentials
 				
         #Add the $session to the $global:DefaultCUCSession
         $script:DefaultCUCSession = @{
@@ -58,6 +52,6 @@ Headers                        {Accept, Authorization}
 		
         $DefaultCUCSession
 		
-		$config
+	$config
     }
 }
