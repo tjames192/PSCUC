@@ -23,7 +23,7 @@ The first thing to do is connect to a Cisco Unity cluster with the command `Conn
 
 ```powershell
 # Connect to Cisco Unity
-Connect-CUC server -Username "username"  -Password "password"
+Connect-CUC server -Credentials
 Name                           Value
 ----                           -----
 IsConnected                    True
